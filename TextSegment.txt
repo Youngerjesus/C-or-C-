@@ -1,0 +1,31 @@
+
+C에서 Memory Layout을 살펴보면 
+
+
+high Address -> low Address까지 순서대로 스택은 low Address쪽으로
+heap 은 high Address쪽으로 향해있고 
+heap 밑에 초기화도지않은 데이터 (bss)가 있ㄱ
+그 밑에 초기화 된 데이터 그 밑에 text segment 이런식으로 있다
+ 
+text segment:  code segment 와 simply as text로 알려져잇ㄱ
+메모리안에  실행할 수 있는 객체 파일이다 이것의 위치는 힙과 스택의
+밑에 있는데 overwriting을 방지하기 위해서 밑에 있는것 
+일반적으로 text segmentㅡㄴ 공유되어진다 하나의 카피가 여러개의 프로세스에
+예를들면 text editor , c compiler , the shell등등
+하나만 있으면 되는 부분 그리고 이러한 부분은 주로 read-only 
+
+
+initialized Data segment:  이건 Data segment라고도 불린다
+프로그램 가상 address의 한 부분이기도 한데 글로벌 변수와 정적변수도 포함한다
+이 부분은 not read only왜냐하면 run time동안에 충분히 바뀔 수 있으니까
+
+ Uninitialized Data segment: bss segment의 지역 여기는 글로벌
+ 변수 정적변수가 0으로 선언되어있는부분도 포함한다 그냥 선언만 한 부분인거
+ 예를 들면 static int i; 이런식으로 
+
+ stack : heap과 정 반대로 grew한다 . 만약 stack popinter 와heap pointer가 만난다면
+ memory는 exhausted하기떄문에 virtual memory기술때문에 이 포인터들은 어디든지 갈 수 있음
+
+ gcc memory-layout.c -o memory-layout // object파일로 만들고
+ size memoy-layout 
+ => text data bss dec hex filename 이렇게 나눠서 출력된다 .
