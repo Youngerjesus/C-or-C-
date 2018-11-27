@@ -1,0 +1,27 @@
+
+
+
+Decision tree에서 h에서 2^h = leaf가 되고 이게 전체 총 개수인 n! 보다는 무조건 크게되지
+2^h >=  n!  양변에 로그를취하면 
+h >= log(n!) 이 된다 
+여기서 
+log(n!) = n * n-1  n-2 ... * 1 이렇게되고  이건  n * n * n  ... * n 보다는 무조건 작게된다.
+즉 log(n!) <= log n ^ n이 되고 
+log(n!) <= nlog n 이 된다 .
+
+근데 이게 하한선을 정해주는 근거가 될까? 
+ㄴㄴ 내가그은건 상한선을 그은거지. 이것보다는 무조건 작게된다 !! 라는거니까 
+
+n! > (n/e)^n 스털링 근사에 의햇 ㅓ
+h > lg(n/e)^n이 되고 
+h는 nlg n - nlg e보다는 무조건 크게된다 .
+하한선을 그을 수 있는거지 .
+
+Why Quick Sort is preferred over MergeSort for sorting Arrays
+mergesort는 O(N) extra storage를 요구한다 .
+합치는비용 붙히는 비용 그런게 있는데 quicksort는 내부정렬이라
+추가 공간을 할당하지 않아도 된다. 
+
+mergesort는 linkedList에서 유용하다 추가 공간없이 구현할 수 있고 
+퀵정렬에서는 주로 임의 접근을 많이쓰는데 이게 linkedList에서는 
+이러한 접근을 할 수 없다 . 연속적인 메모리 블록을 가지고 있지않기 때문에 

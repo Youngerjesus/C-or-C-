@@ -1,0 +1,26 @@
+
+Tabulation : bottom up
+memoization : Top down 
+
+// Tabulated version to find factorial x.
+int dp[MAXN];
+
+// base case
+int dp[0] = 1;
+for (int i = 1; i< =n; i++)
+{
+    dp[i] = dp[i-1] * i;
+}
+
+// initialized to -1
+int dp[MAXN]
+
+// return fact x!
+int solve(int x)
+{
+    if (x==0)
+        return 1;
+    if (dp[x]!=-1)
+        return dp[x];
+    return (dp[x] = x * solve(x-1));
+}
